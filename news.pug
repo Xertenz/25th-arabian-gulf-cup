@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="css/style.css")
+        title الاخبار
+    body 
+        include includes/navbar.pug
+        .news-title-wrapper
+            .container
+                h1.title أخر الأخبار
+        .news-content
+            .container
+                .news-items
+                    a.news-item(href="#")
+                        .news-item-img
+                            img(src="images/news-1.jpg", alt="First News Item")
+                        .news-item-info
+                            h3.news-item-title الخبر الاول
+                            p.news-item-description هنا يكون وصف الخبر
+                            p.news-item-date 4/1/2023
+                    a.news-item(href="#")
+                        .news-item-img
+                            img(src="images/news-1.jpg", alt="First News Item")
+                        .news-item-info
+                            h3.news-item-title الخبر الثاني
+                            p.news-item-description هنا يكون وصف الخبر
+                            p.news-item-date 4/1/2023
+            script(src="js/navbar.js")

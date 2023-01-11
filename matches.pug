@@ -1,0 +1,59 @@
+doctype html
+html 
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet' href='css/style.css')
+        title المباريات
+    body
+        include includes/navbar.pug
+        .matches-title-wrapper
+            .container
+                h1.title المباريات
+        .matches-content
+            .container
+                .matches-items
+                    .matches-item
+                        .team.team-1
+                            span.team-flag 
+                            span.team-name IRAQ
+                        .match-info
+                            span.team-result.team-1-result 22
+                            div.inner-info
+                                span.match-group Group A
+                                span.sign X
+                                span.date-and-time 1/1/2023 12:00
+                            span.team-result.team-2-result 58
+                        .team.team-2
+                            span.team-flag
+                            span.team-name OMAN
+                    .matches-item
+                        .team.team-1
+                            span.team-flag 
+                            span.team-name IRAQ
+                        .match-info
+                            span.team-result.team-1-result -
+                            div.inner-info
+                                span.match-group Group A
+                                span.sign X
+                                span.date-and-time 1/1/2023 12:00
+                            span.team-result.team-2-result -
+                        .team.team-2
+                            span.team-flag
+                            span.team-name OMAN
+                    .matches-item
+                        .team.team-1
+                            span.team-flag 
+                            span.team-name IRAQ
+                        .match-info
+                            span.team-result.team-1-result -
+                            div.inner-info
+                                span.match-group Group A
+                                span.sign X
+                                span.date-and-time 1/1/2023 12:00
+                            span.team-result.team-2-result -
+                        .team.team-2
+                            span.team-flag
+                            span.team-name OMAN
+        script(src='js/navbar.js')
