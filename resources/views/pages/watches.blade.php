@@ -1,0 +1,29 @@
+@extends('pages.master')
+
+@section('content')
+
+
+<div class="matches-title-wrapper">
+      <div class="container">
+        <h1 class="title">المباريات</h1>
+      </div>
+    </div>
+    <div class="matches-content">
+      <div class="container">
+        <div class="matches-items">
+          @foreach($matches as $m)
+          <div class="matches-item">
+            <div class="team team-1"><img src="{{url('uploads/img/'.$m->img1)}}" class='team-flag' alt=""><span class="team-name">{{$m->team1}}</span></div>
+            <div class="match-info"><span class="team-result team-1-result">{{$m->scour1}}</span>
+              <div class="inner-info"><span class="match-group">{{$m->groups}}</span><span class="sign">X</span><span class="date-and-time">{{$m->date}}</span></div><span class="team-result team-2-result">{{$m->scour2}}</span>
+            </div>
+            <div class="team team-2"><img src="{{url('uploads/img2/'.$m->img2)}}" class='team-flag' alt=""><span class="team-name">{{$m->team1}}</span></div>
+          </div>
+          
+          @endforeach
+          
+        </div>
+      </div>
+    </div>
+
+@endsection
