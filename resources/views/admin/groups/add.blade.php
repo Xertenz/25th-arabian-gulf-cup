@@ -28,6 +28,9 @@
                 <option>الامارات</option>
 
             </select>
+            @error('name')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <select name="typeGroup" id="">
             <option>select group</option>
@@ -35,22 +38,37 @@
             <option>2</option>
 
         </select>
+        @error('typeGroup')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         <div class="form-group">
             <label>Matches</label>
             <input type="text" name="matches" id="">
+            @error('matches')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         
         <div class="form-group">
             <label>goals</label>
             <input type="text" name="goals" id="">
+            @error('goals')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>dis Goals</label>
             <input type="text" name="disGoals" id="">
+            @error('disGoals')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>Points</label>
             <input type="text" name="points" id="">
+            @error('points')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <button class='btn btn-danger'>Insert</button>
     </div>

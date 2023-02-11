@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Groups;
+use Illuminate\Support\Facades\Validator;
 
 class GroupsController extends Controller
 {
@@ -20,7 +21,32 @@ class GroupsController extends Controller
     }
     public function insert(Request $request)
     {
-        $group=new Groups();
+        $roles=[
+            'name'=>'required|max:191',
+            'matches'=>'required|max:191',
+            'disGoals'=>'required|max:191',
+            'points'=>'required|max:191',
+            'goals'=>'required|max:191',
+            'typeGroup'=>'required|max:191',
+
+
+        ];
+        $message=[
+            'name.required'=>'الاسم مطلوب',
+            'matches.required'=>'عدد مباريات مطلوب',
+            'disGoals.required'=>'الاهداف عليه مطلوب',
+            'points.required'=>'النقاط مطلوب',
+            'goals.required'=>'الاسم مطلوب',
+            'typeGroup.required'=>'نوع المجموعة مطلوب',
+
+        ];
+        $validator=Validator::make($request->all(),$roles,$message);
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        else{
+               $group=new Groups();
         $group->name=$request->name;
         $group->matches=$request->matches;
         $group->disGoals=$request->disGoals;
@@ -29,6 +55,8 @@ class GroupsController extends Controller
         $group->typeGroup=$request->typeGroup;
         $group->save();
         return redirect('/admin/groups');
+        }
+     
     }
     public function delete($id)
     {
@@ -44,7 +72,33 @@ class GroupsController extends Controller
     }
     public function update(Request $request,$id)
     {
-        $group=Groups::find($id);
+        $roles=[
+            'name'=>'required|max:191',
+            'matches'=>'required|max:191',
+            'disGoals'=>'required|max:191',
+            'points'=>'required|max:191',
+            'goals'=>'required|max:191',
+            'typeGroup'=>'required|max:191',
+
+
+        ];
+        $message=[
+            'name.required'=>'الاسم مطلوب',
+            'matches.required'=>'عدد مباريات مطلوب',
+            'disGoals.required'=>'الاهداف عليه مطلوب',
+            'points.required'=>'النقاط مطلوب',
+            'goals.required'=>'الاسم مطلوب',
+            'typeGroup.required'=>'نوع المجموعة مطلوب',
+
+        ];
+        $validator=Validator::make($request->all(),$roles,$message);
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        else
+        {
+             $group=Groups::find($id);
         $group->name=$request->name;
         $group->matches=$request->matches;
         $group->disGoals=$request->disGoals;
@@ -53,5 +107,7 @@ class GroupsController extends Controller
         $group->typeGroup=$request->typeGroup;
         $group->update();
         return redirect('/admin/groups');
+        }
+       
     }
 }

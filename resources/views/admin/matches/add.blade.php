@@ -20,33 +20,51 @@
             <option>select group</option>
             <option>1</option>
             <option>2</option>
-
+            @error('groups')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </select>
         <div class="form-group">
             <label>team1</label>
             <input type="text" name="team1" id="">
+            @error('team1')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>team2</label>
             <input type="text" name="team2" id="">
+            @error('team2')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         
         <div class="form-group">
             <label>scour1</label>
             <input type="text" name="scour1" id="">
+            @error('scour1')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>scour2</label>
             <input type="text" name="scour2" id="">
+            @error('scour2')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>date</label>
             <input type="date" name="date" id="">
+            @error('date')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         
         <div class="form-group">
             <label>img1</label>
             <input type="file" name="img1" id="">
+            
         </div>
         <div class="form-group">
             <label>img2</label>

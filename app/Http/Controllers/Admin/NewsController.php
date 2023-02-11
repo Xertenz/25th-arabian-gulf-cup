@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
+
 
 class NewsController extends Controller
 {
@@ -20,6 +22,23 @@ class NewsController extends Controller
     }
     public function insert(Request $request)
     {
+        $roles=[
+            'name'=>'required|max:191',
+            'description'=>'required|numeric',
+            'date'=>'required',
+        ];
+        $message=[
+            'name.required'=>'الاسم مطلوب',
+            'description.required'=>'النص مطلوب',
+            'date.required'=>'الموعد مطلوب',
+
+
+        ];
+        $validator=Validator::make($request->all(),$roles,$message);
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
         $news=new News();
         $news->name=$request->name;
         $news->date=$request->date;

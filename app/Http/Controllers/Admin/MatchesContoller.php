@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Matches;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
+
 class MatchesContoller extends Controller
 {
     public function index()
@@ -19,7 +21,33 @@ class MatchesContoller extends Controller
     }
     public function insert(Request $request)
     {
-        $matches=new Matches();
+        $roles=[
+            'team1'=>'required|max:191',
+            'team2'=>'required|max:191',
+            'scour1'=>'required|max:191',
+            'scour2'=>'required|max:191',
+            'date'=>'required|max:191',
+            'groups'=>'required|max:191',
+
+
+        ];
+        $message=[
+            'team1.required'=>'الاسم فريق الاول مطلوب',
+            'team2.required'=>'اسم فريق الثاني  مطلوب',
+            'scour1.required'=>' نتيجة فريق الاول مطلوب',
+            'scour2.required'=>'نتيجة الفريق الثاني مطلوب',
+            'date.required'=>'الموقعد مطلوب',
+            'groups.required'=>'نوع المجموعة مطلوب',
+
+        ];
+        $validator=Validator::make($request->all(),$roles,$message);
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        else
+        {
+             $matches=new Matches();
         $matches->team1=$request->team1;
         $matches->team2=$request->team2;
         $matches->scour1=$request->scour1;
@@ -46,6 +74,8 @@ class MatchesContoller extends Controller
 
         $matches->save();
         return redirect('admin/matches');
+        }
+       
 
     }
     public function delete($id)

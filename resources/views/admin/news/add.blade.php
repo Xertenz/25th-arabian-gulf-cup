@@ -19,14 +19,23 @@
         <div class="form-group">
             <label>name</label>
             <input type="text" name="name" id="">
+            @error('name')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>description</label>
             <input type="text" name="description" id="">
+            @error('description')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>Date</label>
             <input type="date" name="date" id="">
+            @error('date')
+            <small style='font-size:20px' class='form-text text-danger'>{{$message}}</small>
+            @enderror
         </div>
         <div class="form-group">
             <label>image</label>
