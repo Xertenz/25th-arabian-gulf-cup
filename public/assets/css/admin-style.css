@@ -1,0 +1,43 @@
+.container {
+  margin: 0;
+  margin-left: auto;
+  width: calc(100% - 250px); }
+  .container .card-body {
+    display: flex;
+    flex-direction: column; }
+    .container .card-body .form-group.has-input {
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+      .container .card-body .form-group.has-input input {
+        display: inline-block;
+        width: auto; }
+      .container .card-body .form-group.has-input input[type="file"],
+      .container .card-body .form-group.has-input input[type="date"] {
+        width: 13.5rem; }
+    .container .card-body .form-group.has-textarea {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start; }
+      .container .card-body .form-group.has-textarea textarea {
+        width: 13.5rem;
+        height: 14rem; }
+    .container .card-body .form-group label {
+      width: 100px;
+      user-select: none;
+      cursor: pointer;
+      margin: 0; }
+    .container .card-body .form-group select {
+      padding: 0.4rem 0.8rem;
+      border-radius: 0;
+      border: 1px solid #80bdff;
+      width: 20rem;
+      max-width: 100%; }
+
+@media (max-width: 991px) {
+  .container {
+    margin-left: 0;
+    margin: auto;
+    width: 100%; } }
+
+/*# sourceMappingURL=admin-style.css.map */

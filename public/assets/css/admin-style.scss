@@ -1,0 +1,53 @@
+.container {
+  margin: 0;
+  margin-left: auto;
+  width: calc(100% - 250px);
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    .form-group {
+      &.has-input {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        input {
+          display: inline-block;
+          width: auto;
+        }
+        input[type="file"],
+        input[type="date"] {
+          width: 13.5rem;
+        }
+      }
+      &.has-textarea {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        textarea {
+          width: 13.5rem;
+          height: 14rem;
+        }
+      }
+      label {
+        width: 100px;
+        user-select: none;
+        cursor: pointer;
+        margin: 0;
+      }
+      select {
+        padding: 0.4rem 0.8rem;
+        border-radius: 0;
+        border: 1px solid #80bdff;
+        width: 20rem;
+        max-width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  .container {
+    margin-left: 0;
+    margin: auto;
+    width: 100%;
+  }
+}
